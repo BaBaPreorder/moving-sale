@@ -8,6 +8,32 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap');
         body { font-family: 'Inter', 'Noto Sans Thai', sans-serif; }
+
+        .carousel { position: relative; overflow: hidden; }
+        .carousel-track { display: flex; transition: transform 0.35s ease; height: 100%; }
+        .carousel-track img { flex-shrink: 0; width: 100%; height: 100%; object-fit: cover; }
+
+        .carousel-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.45); color: #fff;
+            border: none; cursor: pointer; border-radius: 50%;
+            width: 36px; height: 36px; font-size: 20px; line-height: 1;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.15s; z-index: 10;
+        }
+        .carousel-btn:hover { background: rgba(0,0,0,0.7); }
+        .carousel-btn.prev { left: 10px; }
+        .carousel-btn.next { right: 10px; }
+
+        .carousel-dots {
+            position: absolute; bottom: 8px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 6px; z-index: 10;
+        }
+        .carousel-dots span {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s;
+        }
+        .carousel-dots span.active { background: #fff; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
@@ -18,65 +44,249 @@
                 <h1 class="text-2xl font-bold text-gray-900">🎓 Pong Moving Sale</h1>
                 <p class="text-sm text-gray-600">Pick up in Kirk House near Gannon University.</p>
             </div>
-            <a href="https://m.me/yourfacebook" target="_blank" class="bg-blue-600 text-white px-5 py-2.5 rounded-lg text-sm font-semibold hover:bg-blue-700 transition duration-150">
-                Contact Me
-                814-665-5621
-            </a>
+            <button class="bg-blue-600 text-white px-5 py-2.5 rounded-lg text-sm font-semibold cursor-default">
+                Call Pong
+            </button>
         </nav>
     </header>
 
     <main class="max-w-7xl mx-auto p-6 md:p-10">
-        
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
+            <!-- Nintendo Switch -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-2xl">
                 <div class="relative aspect-[4/3] bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=600" alt="Apple MacBook Pro" class="w-full h-full object-cover">
+                    <div class="carousel h-full" data-images='["images/nintendo.jpg"]'>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
                 </div>
-                
-                
                 <div class="p-6">
                     <div class="flex justify-between items-start">
-                        <h2 class="text-xl font-bold text-gray-900 leading-tight">MacBook Pro 13" M1</h2>
+                        <h2 class="text-xl font-bold text-gray-900 leading-tight">Nintendo Switch Bundle</h2>
                         <span class="text-xs text-gray-400 font-mono ml-3">Used - Good</span>
                     </div>
-                    
                     <p class="text-gray-600 mt-2 text-sm leading-relaxed">
-                        Space Gray, 16GB RAM, 512GB SSD. Used for Gannon coursework. Excellent condition. Original box included.
+                        Console, yellow/purple Joy-Cons, Pro Controller, carrying case, and games (Smash Bros included).
                     </p>
-                    
                     <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5">
-                        <span class="text-3xl font-extrabold text-blue-600">$850</span>
+                        <span class="text-3xl font-extrabold text-blue-600">$250</span>
                         <span class="text-sm text-gray-500">Pick up only</span>
                     </div>
                 </div>
             </div>
+
+            <!-- Dyson Fan -->
             <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-2xl">
                 <div class="relative aspect-[4/3] bg-gray-200">
-                    <img src="https://images.unsplash.com/photo-1610461888750-10bfc601b874?q=80&w=600" alt="Dell Monitor 27 inch" class="w-full h-full object-cover">
-                    
-                    <div class="absolute inset-0 bg-red-600/80 flex items-center justify-center transform rotate-[-15deg] scale-110">
+                    <div class="carousel h-full" data-images='["images/fan1.jpg","images/fan2.jpg"]'>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                        <div class="carousel-dots"></div>
+                        <div class="absolute inset-0 bg-red-600/80 flex items-center justify-center pointer-events-none" style="transform: rotate(-15deg) scale(1.1);">
                         <span class="text-white text-5xl font-extrabold uppercase tracking-widest px-6 py-2 border-4 border-white">SOLD OUT</span>
                     </div>
                     </div>
-                
-                <div class="p-6 opacity-60"> <div class="flex justify-between items-start">
-                        <h2 class="text-xl font-bold text-gray-900 leading-tight">Dell 27" 4K Monitor (U2720Q)</h2>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h2 class="text-xl font-bold text-gray-900 leading-tight">Dyson Bladeless Fan</h2>
+                        <span class="text-xs text-gray-400 font-mono ml-3">Used - Good</span>
                     </div>
-                    <p class="text-gray-600 mt-2 text-sm leading-relaxed">Great for coding. USB-C Charging. No scratches.</p>
-                    <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5 hover:pointer-events-none">
-                        <span class="text-3xl font-extrabold text-red-700 strike-through line-through">$200</span>
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                        Dyson Cool bladeless fan in blue. Quiet, powerful airflow. Works great.
+                    </p>
+                    <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5">
+                        <span class="text-3xl font-extrabold text-red-700 line-through">$170</span>
                         <span class="text-sm text-red-700 font-bold">Sold</span>
                     </div>
                 </div>
             </div>
+
+            <!-- Coffee Setup -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                <div class="relative aspect-[4/3] bg-gray-200">
+                    <div class="carousel h-full" data-images='["images/coffee1.jpg","images/coffee2.jpg","images/coffee3.jpg"]'>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h2 class="text-xl font-bold text-gray-900 leading-tight">Coffee Maker Bundle</h2>
+                        <span class="text-xs text-gray-400 font-mono ml-3">Used - Good</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                        Mr. Coffee drip maker + Nespresso machine. Nespresso pods included. Both working perfectly.
+                    </p>
+                    <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5">
+                        <span class="text-3xl font-extrabold text-blue-600">$50</span>
+                        <span class="text-sm text-gray-500">Pick up only</span>
+                    </div>
+                </div>
             </div>
+
+            <!-- Ab Roller -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                <div class="relative aspect-[4/3] bg-gray-200">
+                    <div class="carousel h-full" data-images='["images/exercise1.jpg","images/exercise2.jpg","images/exercise3.jpg"]'>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h2 class="text-xl font-bold text-gray-900 leading-tight">Ab Roller Wheel Set</h2>
+                        <span class="text-xs text-gray-400 font-mono ml-3">Like New</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                        Exercise roller wheels for abs, muscles, and shoulders. Still in original box.
+                    </p>
+                    <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5">
+                        <span class="text-3xl font-extrabold text-blue-600">$15</span>
+                        <span class="text-sm text-gray-500">Pick up only</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laptop Stand -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                <div class="relative aspect-[4/3] bg-gray-200">
+                    <div class="carousel h-full" data-images='["images/stable1.jpg","images/stable2.jpg","images/stable3.jpg"]'>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h2 class="text-xl font-bold text-gray-900 leading-tight">Laptop Lap Desk</h2>
+                        <span class="text-xs text-gray-400 font-mono ml-3">Used - Good</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                        Portable lap desk with wood-finish surface and foldable legs. Great for working on the couch or in bed.
+                    </p>
+                    <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5">
+                        <span class="text-3xl font-extrabold text-blue-600">$15</span>
+                        <span class="text-sm text-gray-500">Pick up only</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Storage Cabinet -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                <div class="relative aspect-[4/3] bg-gray-200">
+                    <div class="carousel h-full" data-images='["images/box1.jpg","images/box2.jpg"]'>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start">
+                        <h2 class="text-xl font-bold text-gray-900 leading-tight">Storage Cabinet</h2>
+                        <span class="text-xs text-gray-400 font-mono ml-3">Used - Good</span>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                        White 4-compartment cabinet with smoked glass doors. Great for storing shoes, clothes, or supplies.
+                    </p>
+                    <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5">
+                        <span class="text-3xl font-extrabold text-blue-600">$15</span>
+                        <span class="text-sm text-gray-500">Pick up only</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dell Monitor (SOLD) -->
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                <div class="relative aspect-[4/3] bg-gray-200">
+                    <div class="carousel h-full" data-images='["images/monitor1.jpg","images/monitor2.jpg"]'>
+                        <div class="carousel-track"></div>
+                        <button class="carousel-btn prev">&#8249;</button>
+                        <button class="carousel-btn next">&#8250;</button>
+                        <div class="carousel-dots"></div>
+                    </div>
+                    <div class="absolute inset-0 bg-red-600/80 flex items-center justify-center pointer-events-none" style="transform: rotate(-15deg) scale(1.1);">
+                        <span class="text-white text-5xl font-extrabold uppercase tracking-widest px-6 py-2 border-4 border-white">SOLD OUT</span>
+                    </div>
+                </div>
+                <div class="p-6 opacity-60">
+                    <div class="flex justify-between items-start">
+                        <h2 class="text-xl font-bold text-gray-900 leading-tight">MSI 25" monitor 200Hz</h2>
+                    </div>
+                    <p class="text-gray-600 mt-2 text-sm leading-relaxed"></p>
+                    <div class="mt-6 flex justify-between items-center border-t border-gray-100 pt-5">
+                        <span class="text-3xl font-extrabold text-red-700 line-through">$70</span>
+                        <span class="text-sm text-red-700 font-bold">Sold</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </main>
 
     <footer class="text-center py-16 mt-10 border-t border-gray-200 bg-white">
         <p class="text-gray-600">First come, first served.</p>
         <p class="text-xs text-gray-400 mt-2">Sale managed by Pong, Erie, PA.</p>
     </footer>
+
+    <script>
+        document.querySelectorAll('.carousel').forEach(carousel => {
+            const images = JSON.parse(carousel.dataset.images);
+            const track = carousel.querySelector('.carousel-track');
+            const dotsContainer = carousel.querySelector('.carousel-dots');
+            const prevBtn = carousel.querySelector('.carousel-btn.prev');
+            const nextBtn = carousel.querySelector('.carousel-btn.next');
+            let current = 0;
+
+            images.forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                img.style.flexShrink = '0';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                track.appendChild(img);
+            });
+
+            if (images.length > 1) {
+                images.forEach((_, i) => {
+                    const dot = document.createElement('span');
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goTo(i));
+                    dotsContainer.appendChild(dot);
+                });
+            } else {
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                dotsContainer.style.display = 'none';
+            }
+
+            function goTo(index) {
+                current = index;
+                track.style.transform = `translateX(-${current * 100}%)`;
+                dotsContainer.querySelectorAll('span').forEach((d, i) => {
+                    d.classList.toggle('active', i === current);
+                });
+                prevBtn.style.display = current === 0 ? 'none' : 'flex';
+                nextBtn.style.display = current === images.length - 1 ? 'none' : 'flex';
+            }
+
+            prevBtn.addEventListener('click', () => goTo(current - 1));
+            nextBtn.addEventListener('click', () => goTo(current + 1));
+
+            goTo(0);
+        });
+    </script>
 
 </body>
 </html>
